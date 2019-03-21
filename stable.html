@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<link href="dynamic.css" type="text/css" rel="stylesheet" media="screen"/>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+</head>
+<!--<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>-->
+
+<div id="container">
+    <script language="Javascript">
+        // Create the chart
+        Highcharts.chart('container', {
+                         chart: {
+                         type: 'column'
+                         },
+                         title: {
+                         text: ''
+                         },
+                         subtitle: {
+                         text: ''
+                         },
+                         xAxis: {
+                         type: 'category'
+                         },
+                         yAxis: {
+                         title: {
+                         text: 'Number of macaddress'
+                         }
+                         
+                         },
+                         legend: {
+                         enabled: false
+                         },
+                         plotOptions: {
+                         series: {
+                         borderWidth: 0,
+                         dataLabels: {
+                         enabled: true,
+                         format: '{point.y:.1f}'
+                         }
+                         }
+                         },
+                         
+                         tooltip: {
+                         headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                         pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+                         },
+                         
+                         "series": [
+                                    {
+                                    "name": "Browsers",
+                                    "colorByPoint": true,
+                                    "data": [{'y': 502, 'name': '149'}, {'y': 519, 'name': '102'}, {'y': 527, 'name': '158'}, {'y': 549, 'name': '266'}, {'y': 615, 'name': '181'}, {'y': 649, 'name': '171'}, {'y': 909, 'name': '105'}, {'y': 1126, 'name': '110'}, {'y': 1249, 'name': '177'}, {'y': 1253, 'name': '133'}, {'y': 1430, 'name': '106'}, {'y': 3212, 'name': 'Outdoor'}]
+                         
+
+                                    }
+                               ]
+                         });
+        </script>
+    </div>
+
+
+
+<!--
+<div id="container">
+    <script language="JavaScript">
+        Highcharts.chart('container', {
+                         chart: {
+                         type: 'spline',
+                         animation: Highcharts.svg, // don't animate in old IE
+                         marginRight: 10,
+                         events: {
+                         load: function () {
+                         
+                         // set up the updating of the chart each second
+                         var series = this.series[0];
+                         setInterval(function () {
+                                     var x = (new Date()).getTime(), // current time
+                                     y = Math.random();
+                                     series.addPoint([x, y], true, true);
+                                     }, 1000);
+                         }
+                         }
+                         },
+                         
+                         time: {
+                         useUTC: false
+                         },
+                         
+                         title: {
+                         text: 'Live random data'
+                         },
+                         xAxis: {
+                         type: 'datetime',
+                         tickPixelInterval: 150
+                         },
+                         yAxis: {
+                         title: {
+                         text: 'Value'
+                         },
+                         plotLines: [{
+                                     value: 0,
+                                     width: 1,
+                                     color: '#808080'
+                                     }]
+                         },
+                         tooltip: {
+                         headerFormat: '<b>{series.name}</b><br/>',
+                         pointFormat: '{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}'
+                         },
+                         legend: {
+                         enabled: false
+                         },
+                         exporting: {
+                         enabled: false
+                         },
+                         series: [{
+                                  name: 'Random data',
+                                  data: (function () {
+                                         // generate an array of random data
+                                         var data = [],
+                                         time = (new Date()).getTime(),
+                                         i;
+                                         
+                                         for (i = -19; i <= 0; i += 1) {
+                                         data.push({
+                                                   x: time + i * 1000,
+                                                   y: Math.random()
+                                                   });
+                                         }
+                                         return data;
+                                         }())
+                                  }]
+                         });
+
+        </script>
+
+
+</div>
+ -->
+
+</body>
+</html>
